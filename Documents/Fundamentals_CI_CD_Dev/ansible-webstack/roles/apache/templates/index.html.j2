@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Apache via Ansible</title>
+</head>
+<body>
+    <h1>Apache (httpd) is working! </h1>
+
+    <h2>Deployment info</h2>
+    <ul>
+        <li><strong>Inventory name:</strong> {{ inventory_hostname }}</li>
+        <li><strong>System hostname:</strong> {{ ansible_hostname }}</li>
+        <li><strong>FQDN:</strong> {{ ansible_fqdn }} </li>
+        <li><strong>Primary IP address:</strong> {{ ansible_default_ipv4.address }}</li>
+    </ul>
+
+<h2>System info</h2>
+    <ul>
+        <li><strong>OS:</strong> {{ ansible_distribution }} {{ ansible_distribution_version }}</li>
+        <li><strong>Total RAM:</strong> {{ ansible_memtotal_mb }} MB</li>
+        <li><strong>vCPUs:</strong> {{ ansible_processor_vcpus }}</li>
+        <li><strong>CPU model:</strong> {{ ansible_processor[0] }}</li>
+        <li><strong>Vendor / platform:</strong> {{ ansible_system_vendor }} {{ ansible_product_name }}</li>
+    </ul>
+
+    <p>This page was deployed by Ansible role <strong>apache</strong> on Amazon Linux.</p>
+    <p> Created by Vladimir Kuryndin.</p>
+</body>
+</html>
+

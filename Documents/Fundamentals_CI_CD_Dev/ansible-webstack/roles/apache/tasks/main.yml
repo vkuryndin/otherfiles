@@ -1,0 +1,20 @@
+---
+- name: Install Apache (httpd)
+  ansible.builtin.package:
+    name: httpd
+    state: present
+  notify: Restart apache
+
+- name: Ensure Apache (httpd) service is enabled and running
+  ansible.builtin.service:
+    name: httpd
+    state: started
+    enabled: true
+
+- name: Deploy custom index.html to Apache default site
+  ansible.builtin.template:
+    src: index.html.j2
+    dest: /var/www/html/index.html
+    owner: apache
+    group: apache
+    mode: '0644'

@@ -1,0 +1,22 @@
+---
+- name: Remove Nginx from nginx group
+  hosts: nginx
+  become: true
+  gather_facts: false
+
+  tasks:
+    - name: Stop and disable Nginx service
+      ansible.builtin.service:
+        name: nginx
+        state: stopped
+        enabled: false
+
+    - name: Remove Nginx package
+      ansible.builtin.package:
+        name: nginx
+        state: absent
+
+    - name: Remove Nginx index.html (if still exists)
+      ansible.builtin.file:
+        path: /var/www/html/index.html
+        state: absent

@@ -1,0 +1,8 @@
+---
+- name: Configure Apache on apache group
+  hosts: apache
+  become: true
+  gather_facts: true
+
+  roles:
+    - apache

@@ -1,0 +1,22 @@
+---
+- name: Remove Apache from apache group
+  hosts: apache
+  become: true
+  gather_facts: false
+
+  tasks:
+    - name: Stop and disable Apache (httpd) service
+      ansible.builtin.service:
+        name: httpd
+        state: stopped
+        enabled: false
+
+    - name: Remove Apache (httpd) package
+      ansible.builtin.package:
+        name: httpd
+        state: absent
+
+    - name: Remove Apache index.html (if still exists)
+      ansible.builtin.file:
+        path: /var/www/html/index.html
+        state: absent
