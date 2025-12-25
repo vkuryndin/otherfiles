@@ -1,0 +1,5 @@
+﻿Analysis results for shortlinkapp@1.0-SNAPSHOT:
+BOM Serial Number: urn:uuid:9fced05c-90fc-4fed-9bec-881e9a47f9c5
+BOM Version: 1
+Timestamp: 24.12.2025 14:07:07
+
